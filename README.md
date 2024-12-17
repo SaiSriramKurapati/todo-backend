@@ -36,25 +36,25 @@ Clone the project and navigate into the backend directory:
 
 ## Step 1: Install MySQL
 
-1. **Install MySQL**:
+## 1.Install MySQL**:
    - Download and install MySQL from [MySQL Downloads](https://dev.mysql.com/downloads/installer/).
    - Follow the installation instructions for your operating system.
 
-2. **Start MySQL Server**:
+## 2.Start MySQL Server**:
    - Ensure the MySQL server is running on your system. Use the command:
      ```bash
      mysql.server start
      ```
    - Alternatively, start it using your operating system's services manager or MySQL Workbench.
 
-3. **Login to MySQL**:
+## 3.Login to MySQL**:
    - Access your MySQL server via the terminal or MySQL Workbench:
      ```bash
      mysql -u root -p
      ```
    - Enter the password for the `root` user or another user you’ve set up.
 
-4. **Create a Database**:
+## 4.Create a Database**:
    - Run the following SQL command to create a database:
      ```sql
      CREATE DATABASE todo;
@@ -65,7 +65,7 @@ Clone the project and navigate into the backend directory:
 
 ## Step 2: Install Prisma CLI
 
-## 1. Install Prisma as a Development Dependency**:
+## 1. Install Prisma as a Development Dependency:
    - Run the following command in your project directory:
 
    ```bash
@@ -77,6 +77,7 @@ Clone the project and navigate into the backend directory:
    ```bash
       npx prisma init
    ```
+
 ## 3. Define the DB url in the .env file:
    ```bash
       DATABASE_URL="mysql://root@localhost:3001/database_name"
@@ -86,28 +87,7 @@ Clone the project and navigate into the backend directory:
    - Replace PORT with your MySQL port (e.g., 3306 for default MySQL).
    - Replace DATABASE_NAME with your desired database name.
 
-## 4. Define Your Prisma Schema
-
-   ```bash
-      generator client {
-      provider = "prisma-client-js"
-      }
-
-      datasource db {
-      provider = "mysql"
-      url      = env("DATABASE_URL")
-      }
-
-      model Todo {
-      id          Int      @id @default(autoincrement())
-      title       String
-      description String?
-      completed   Boolean  @default(false)
-      createdAt   DateTime @default(now())
-      }
-   ```
-
-## 5. Run Migrations
+## 4. Run Migrations
 
    - Run the following command to create a migration and apply it to the database:
 
@@ -115,8 +95,18 @@ Clone the project and navigate into the backend directory:
       npx prisma migrate dev --name init
    ```
 
-## 6. Generate Prisma Client
+## 5. Generate Prisma Client
    
    ```bash
       npx prisma generate
    ```
+## 6. Start Prisma Studio Use the following command to launch Prisma Studio:
+
+   ```
+   npx prisma studio
+   ```
+   - Once the command is executed, Prisma Studio will open in your default browser at: 
+   ```bash
+      http://localhost:5555
+   ```
+
